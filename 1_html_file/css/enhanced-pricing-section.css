@@ -12,11 +12,15 @@
 .pricing-one .row {
     display: flex;
     align-items: stretch;
+    margin-left: -15px;
+    margin-right: -15px;
 }
 
 .pricing-one .row > [class*="col-"] {
     display: flex;
     flex-direction: column;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .pricing-one::before {
@@ -115,11 +119,11 @@
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
-    height: auto;
-    min-height: 600px;
+    height: 100%;
+    min-height: 700px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
 }
 
 .pricing-one__single::before {
@@ -244,6 +248,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    min-height: 300px;
 }
 
 .pricing-one__points li {
@@ -397,6 +402,26 @@
     flex-grow: 1;
 }
 
+/* Create consistent card sections */
+.pricing-one__single {
+    display: flex;
+    flex-direction: column;
+}
+
+.pricing-one__single .pricing-one__tagline,
+.pricing-one__single .pricing-one__price,
+.pricing-one__single .pricing-one__btn-box,
+.pricing-one__single .pricing-one__text {
+    flex-shrink: 0;
+}
+
+.pricing-one__points {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
 /* Fix for cards with popular badge to maintain baseline alignment */
 .pricing-one__single:has(.pricing-one__popular) {
     margin-top: 0;
@@ -414,6 +439,60 @@
     }
     
     .pricing-one__single {
+        margin-bottom: 2rem;
+    }
+}
+/* Additional fixes for perfect card alignment */
+.pricing-one .col-xl-4 {
+    display: flex !important;
+    align-items: stretch !important;
+}
+
+.pricing-one__single {
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+}
+
+/* Ensure all cards have the same baseline */
+.pricing-one .row {
+    align-items: stretch !important;
+}
+
+/* Fix for popular badge positioning without affecting card height */
+.pricing-one__single:has(.pricing-one__popular) {
+    margin-top: 0 !important;
+    height: 100% !important;
+}
+
+/* Ensure button area is at the bottom */
+.pricing-one__btn-box {
+    margin-top: auto;
+    margin-bottom: 1.5rem;
+}
+
+/* Make sure feature lists don't affect card height */
+.pricing-one__points {
+    flex: 1 1 auto !important;
+    min-height: 280px;
+    max-height: none;
+}
+
+/* Responsive fixes */
+@media (max-width: 992px) {
+    .pricing-one .row {
+        display: block !important;
+    }
+    
+    .pricing-one .row > [class*="col-"] {
+        display: block !important;
+    }
+    
+    .pricing-one__single {
+        height: auto !important;
+        min-height: 500px;
         margin-bottom: 2rem;
     }
 }
